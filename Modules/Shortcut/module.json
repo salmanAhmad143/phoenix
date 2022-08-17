@@ -1,0 +1,13 @@
+{
+    "name": "Shortcut",
+    "alias": "shortcut",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\Shortcut\\Providers\\ShortcutServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

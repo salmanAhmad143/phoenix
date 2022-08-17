@@ -1,0 +1,3698 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Phoenix",
+        "description": "",
+        "version": "v1"
+    },
+    "host": "phoenix.localhost\/",
+    "basePath": "\/",
+    "schemes": [
+        "http",
+        "https"
+    ],
+    "tags": [
+        {
+            "name": "A",
+            "description": "User",
+            "docExpansion": "none"
+        },
+        {
+            "name": "B",
+            "description": "Projects",
+            "docExpansion": "none"
+        },
+        {
+            "name": "C",
+            "description": "Media",
+            "docExpansion": "none"
+        },
+        {
+            "name": "D",
+            "description": "Original",
+            "docExpansion": "none"
+        },
+        {
+            "name": "E",
+            "description": "Translated",
+            "docExpansion": "none"
+        },
+        {
+            "name": "F",
+            "description": "Caption",
+            "docExpansion": "none"
+        },
+        {
+            "name": "G",
+            "description": "Role",
+            "docExpansion": "none"
+        },
+        {
+            "name": "H",
+            "description": "Team",
+            "docExpansion": "none"
+        },
+        {
+            "name": "I",
+            "description": "Guideline",
+            "docExpansion": "none"
+        },
+        {
+            "name": "J",
+            "description": "Project Allocation",
+            "docExpansion": "none"
+        },
+        {
+            "name": "k",
+            "description": "Media Allocation",
+            "docExpansion": "none"
+        },
+        {
+            "name": "L",
+            "description": "Language",
+            "docExpansion": "none"
+        },
+        {
+            "name": "M",
+            "description": "Transcript Assignment",
+            "docExpansion": "none"
+        },
+        {
+            "name": "N",
+            "description": "Workflow",
+            "docExpansion": "none"
+        },
+        {
+            "name": "O",
+            "description": "Client"
+        }
+        ,
+        {
+            "name": "P",
+            "description": "Tags",
+            "docExpansion": "none"
+        },
+        {
+            "name": "Q",
+            "description": "Code Master",
+            "docExpansion": "none"
+        }
+    ],
+    "paths": {
+        "api\/v1\/users\/registration": {
+            "post": {
+                "summary": "Registration",
+                "tags": "A",
+                "description": "",
+                "deprecated": false,
+                "parameters": [
+                    {
+                        "in": "formData",
+                        "name": "email",
+                        "type": "string",
+                        "description": "Email",
+                        "required": true
+                    },
+                    {
+                        "in": "formData",
+                        "name": "name",
+                        "type": "string",
+                        "description": "Name",
+                        "required": true
+                    },
+                    {
+                        "in": "formData",
+                        "name": "roleId",
+                        "type": "string",
+                        "description": "Role Id",
+                        "required": true
+                    },
+                    {
+                        "in": "formData",
+                        "name": "departmentId",
+                        "type": "string",
+                        "description": "Department Id",
+                        "required": true
+                    },
+                    {
+                        "in": "formData",
+                        "name": "reportingManagerId",
+                        "type": "string",
+                        "description": "Reporting Manager"
+                    },
+                    {
+                        "in": "formData",
+                        "name": "accessLevelId",
+                        "type": "string",
+                        "description": "Access Level",
+                        "required": true
+                    },
+                    {
+                        "in": "formData",
+                        "name": "additionalReportingIds[]",
+                        "type": "array",
+                        "items": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "api\/v1\/users\/email\/verification": {
+            "post": {
+                "summary": "Email verification",
+                "tags": "A",
+                "description": "",
+                "deprecated": false,
+                "parameters": [
+                    {
+                        "in": "formData",
+                        "name": "email",
+                        "type": "string",
+                        "description": "Email",
+                        "required": true
+                    },
+                    {
+                        "in": "formData",
+                        "name": "emailVerificationCode",
+                        "type": "string",
+                        "description": "Email verification code",
+                        "required": true
+                    },
+                    {
+                        "in": "formData",
+                        "name": "password",
+                        "type": "string",
+                        "description": "Password",
+                        "required": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "api\/v1\/users\/login": {
+            "post": {
+                "summary": "Login",
+                "tags": "A",
+                "description": "",
+                "deprecated": false,
+                "parameters": [
+                    {
+                        "in": "formData",
+                        "name": "email",
+                        "type": "string",
+                        "description": "Registered Email",
+                        "required": true
+                    },
+                    {
+                        "in": "formData",
+                        "name": "password",
+                        "type": "string",
+                        "description": "Password",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "api\/v1\/users\/logout": {
+            "post": {
+                "summary": "Logout",
+                "tags": "A",
+                "description": "",
+                "deprecated": false,
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "type": "string",
+                        "description": "",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "api\/v1\/users\/password\/recovery-token": {
+            "post": {
+                "summary": "Forget password",
+                "tags": "A",
+                "description": "",
+                "deprecated": false,
+                "parameters": [
+                    {
+                        "in": "formData",
+                        "name": "email",
+                        "type": "string",
+                        "description": "Registered email",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "api\/v1\/users\/password\/update": {
+            "post": {
+                "summary": "Update password",
+                "tags": "A",
+                "description": "",
+                "deprecated": false,
+                "parameters": [
+                    {
+                        "in": "formData",
+                        "name": "passwordRecoveryToken",
+                        "type": "string",
+                        "description": "Password recovery token",
+                        "required": true
+                    },
+                    {
+                        "in": "formData",
+                        "name": "password",
+                        "type": "string",
+                        "description": "New Password",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "api\/v1\/users\/password\/change": {
+            "post": {
+                "summary": "Change password",
+                "tags": "A",
+                "description": "",
+                "deprecated": false,
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "type": "string",
+                        "description": "",
+                        "required": true
+                    },
+                    {
+                        "in": "formData",
+                        "name": "oldPassword",
+                        "type": "string",
+                        "description": "Old Password",
+                        "required": true
+                    },
+                    {
+                        "in": "formData",
+                        "name": "newPassword",
+                        "type": "string",
+                        "description": "New Password",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "api\/v1\/users\/?name={name}&email={email}&page={page}&size={size}&departmentName={departmentName}&status={status}": {
+            "get": {
+                "summary": "Get users.",
+                "description": "",
+                "tags": "A",
+                "deprecated": false,
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "type": "string",
+                        "description": "",
+                        "required": true
+                    },
+                    {
+                        "in": "path",
+                        "name": "name",
+                        "type": "string",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "path",
+                        "name": "email",
+                        "type": "string",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "path",
+                        "name": "departmentName",
+                        "type": "string",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "path",
+                        "name": "status",
+                        "type": "integer",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "path",
+                        "name": "page",
+                        "type": "integer",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "path",
+                        "name": "size",
+                        "type": "string",
+                        "required": false,
+                        "description": ""
+                    }
+                ]
+            }
+        },
+
+        "api\/v1\/users\/update\/status\/?userId={userId}": {
+            "put": {
+                "summary": "Update user status.",
+                "description": "",
+                "tags": "A",
+                "deprecated": false,
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "type": "string",
+                        "description": "",
+                        "required": true
+                    },
+                    {
+                        "in": "path",
+                        "name": "userId",
+                        "type": "string",
+                        "required": true,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "status",
+                        "enum": [
+                            0,
+                            1
+                        ],
+                        "description": "",
+                        "required": false
+                    }
+                ]
+            }
+        },
+
+
+        "api\/v1\/users\/update\/?userId={userId}": {
+            "put": {
+                "summary": "Update user detail.",
+                "description": "",
+                "tags": "A",
+                "deprecated": false,
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "type": "string",
+                        "description": "",
+                        "required": true
+                    },
+                    {
+                        "in": "path",
+                        "name": "userId",
+                        "type": "string",
+                        "required": true,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "name",
+                        "type": "string",
+                        "description": "",
+                        "required": false
+                    },
+                    {
+                        "in": "formData",
+                        "name": "roleId",
+                        "type": "string",
+                        "description": "",
+                        "required": false
+                    },
+                    {
+                        "in": "formData",
+                        "name": "departmentId",
+                        "type": "string",
+                        "description": "Department Id",
+                    },
+                    {
+                        "in": "formData",
+                        "name": "reportingManagerId",
+                        "type": "string",
+                        "description": "Reporting Manager",
+                    },
+                    {
+                        "in": "formData",
+                        "name": "accessLevelId",
+                        "type": "string",
+                        "description": "Access Level",
+                    },
+                    {
+                        "in": "formData",
+                        "name": "additionalReportingIds[]",
+                        "type": "array",
+                        "items": []
+                    },
+                    {
+                        "in": "formData",
+                        "name": "status",
+                        "enum": [
+                            0,
+                            1
+                        ],
+                        "description": "",
+                        "required": false
+                    }
+                ]
+            }
+        },
+        "api\/v1\/users\/delete\/?userId={userId}": {
+            "delete": {
+                "summary": "Delete user.",
+                "description": "",
+                "tags": "A",
+                "deprecated": false,
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "type": "string",
+                        "description": "",
+                        "required": true
+                    },
+                    {
+                        "in": "path",
+                        "name": "userId",
+                        "type": "string",
+                        "required": true,
+                        "description": ""
+                    }
+                ]
+            }
+        },
+        "api\/v1\/projects\/?page={page}&size={size}": {
+            "get": {
+                "summary": "Project list",
+                "description": "",
+                "tags": "B",
+                "deprecated": false,
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "type": "string",
+                        "description": "",
+                        "required": true
+                    },
+                    {
+                        "in": "path",
+                        "name": "page",
+                        "type": "integer",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "path",
+                        "name": "size",
+                        "type": "string",
+                        "required": false,
+                        "description": ""
+                    }
+                ]
+            }
+        },
+        "api\/v1\/projects\/details\/?projectId={projectId}": {
+            "get": {
+                "summary": "Project details",
+                "description": "",
+                "tags": "B",
+                "deprecated": false,
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "type": "string",
+                        "description": "",
+                        "required": true
+                    },
+                    {
+                        "in": "path",
+                        "name": "projectId",
+                        "type": "string",
+                        "required": true,
+                        "description": ""
+                    }
+                ]
+            }
+        },
+        "api\/v1\/projects\/create": {
+            "post": {
+                "summary": "Create new project",
+                "tags": "B",
+                "description": "",
+                "deprecated": false,
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "type": "string",
+                        "description": "",
+                        "required": true
+                    },
+                    {
+                        "in": "formData",
+                        "name": "name",
+                        "type": "string",
+                        "description": "Project name",
+                        "required": true
+                    },
+                    {
+                        "in": "formData",
+                        "name": "workflowId",
+                        "type": "string",
+                        "description": "Work flow original captions Id",
+                        "required": true
+                    },
+                    {
+                        "in": "formData",
+                        "name": "workFlowTranslationId",
+                        "type": "string",
+                        "description": "Workflow for Translation",
+                        "required": true
+                    },
+                    {
+                        "in": "formData",
+                        "name": "clientId",
+                        "type": "string",
+                        "description": "Client id",
+                        "required": true
+                    },
+                    {
+                        "in": "formData",
+                        "name": "startDate",
+                        "type": "date",
+                        "description": "Start date (YYYY-MM-DD)"
+                    },
+                    {
+                        "in": "formData",
+                        "name": "dueDate",
+                        "type": "date",
+                        "description": "Due date (YYYY-MM-DD)"
+                    },
+                    {
+                        "in": "formData",
+                        "name": "note",
+                        "type": "textarea",
+                        "description": "Note"
+                    },
+                    {
+                        "in": "formData",
+                        "name": "projectManagerId",
+                        "type": "string",
+                        "description": "Project manager id",
+                    },
+                    {
+                        "in": "formData",
+                        "name": "projectLeadId",
+                        "type": "string",
+                        "description": "Project lead id"
+                    },
+                    {
+                        "in": "formData",
+                        "name": "tags[]",
+                        "type": "array",
+                        "items": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "api\/v1\/projects\/update\/?projectId={projectId}": {
+            "put": {
+                "summary": "Update project detail.",
+                "description": "",
+                "tags": "B",
+                "deprecated": false,
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "type": "string",
+                        "description": "",
+                        "required": true
+                    },
+                    {
+                        "in": "path",
+                        "name": "projectId",
+                        "type": "string",
+                        "required": true,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "name",
+                        "type": "string",
+                        "description": "Project name",
+                        "required": true
+                    },
+                    {
+                        "in": "formData",
+                        "name": "workflowId",
+                        "type": "string",
+                        "description": "Work flow original captions Id",
+                        "required": true
+                    },
+                    {
+                        "in": "formData",
+                        "name": "workFlowTranslationId",
+                        "type": "string",
+                        "description": "Workflow for Translation",
+                        "required": true
+                    },
+                    {
+                        "in": "formData",
+                        "name": "clientId",
+                        "type": "string",
+                        "description": "Client id",
+                        "required": true
+                    },
+                    {
+                        "in": "formData",
+                        "name": "startDate",
+                        "type": "date",
+                        "description": "Start date (YYYY-MM-DD)"
+                    },
+                    {
+                        "in": "formData",
+                        "name": "dueDate",
+                        "type": "date",
+                        "description": "Due date (YYYY-MM-DD)"
+                    },
+                    {
+                        "in": "formData",
+                        "name": "note",
+                        "type": "textarea",
+                        "description": "Note"
+                    },
+                    {
+                        "in": "formData",
+                        "name": "projectManagerId",
+                        "type": "string",
+                        "description": "Project manager id",
+                    },
+                    {
+                        "in": "formData",
+                        "name": "projectLeadId",
+                        "type": "string",
+                        "description": "Project lead id"
+                    },
+                    {
+                        "in": "formData",
+                        "name": "tags[]",
+                        "type": "array",
+                        "items": []
+                    }
+                ]
+            }
+        },
+        "api\/v1\/projects\/delete\/?projectId={projectId}": {
+            "delete": {
+                "summary": "Delete project.",
+                "description": "",
+                "tags": "B",
+                "deprecated": false,
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "type": "string",
+                        "description": "",
+                        "required": true
+                    },
+                    {
+                        "in": "path",
+                        "name": "projectId",
+                        "type": "string",
+                        "required": true,
+                        "description": ""
+                    }
+                ]
+            }
+        },
+        "api\/v1\/projects\/media\/?projectId={projectId}&page={page}&size={size}": {
+            "get": {
+                "summary": "Get project media.",
+                "description": "",
+                "tags": "B",
+                "deprecated": false,
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "type": "string",
+                        "description": "",
+                        "required": true
+                    },
+                    {
+                        "in": "path",
+                        "name": "projectId",
+                        "type": "string",
+                        "required": true,
+                        "description": ""
+                    },
+                    {
+                        "in": "path",
+                        "name": "page",
+                        "type": "integer",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "path",
+                        "name": "size",
+                        "type": "string",
+                        "required": false,
+                        "description": ""
+                    }
+                ]
+            }
+        },
+        "api\/v1\/media": {
+            "post": {
+                "summary": "Upload media.",
+                "consumes": "multipart/form-data",
+                "description": "",
+                "tags": "C",
+                "deprecated": false,
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "type": "string",
+                        "description": "",
+                        "required": true
+                    },
+                    {
+                        "in": "formData",
+                        "name": "projectId",
+                        "type": "string",
+                        "required": true,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "mediaFiles[]",
+                        "type": "array",
+                        "required": true,
+                        "description": "",
+                        "items": []
+                    }
+                ]
+            }
+        },
+        "api\/v1\/media\/details\/?mediaId={mediaId}": {
+            "get": {
+                "summary": "Display dtails of the media.",
+                "description": "",
+                "tags": "C",
+                "deprecated": false,
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "type": "string",
+                        "description": "",
+                        "required": true
+                    },
+                    {
+                        "in": "path",
+                        "name": "mediaId",
+                        "type": "string",
+                        "required": true,
+                        "description": ""
+                    }
+                ]
+            }
+        },
+        "api\/v1\/media\/update\/?mediaId={mediaId}": {
+            "put": {
+                "summary": "Update media detail.",
+                "description": "",
+                "tags": "C",
+                "deprecated": false,
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "type": "string",
+                        "description": "",
+                        "required": true
+                    },
+                    {
+                        "in": "path",
+                        "name": "mediaId",
+                        "type": "string",
+                        "required": true,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "name",
+                        "type": "string",
+                        "description": "Media name",
+                        "required": false
+                    },
+                    {
+                        "in": "formData",
+                        "name": "workflowId",
+                        "type": "string",
+                        "description": "Work flow Id",
+                        "required": false
+                    },
+                    {
+                        "in": "formData",
+                        "name": "languageId",
+                        "type": "string",
+                        "description": "Language Id",
+                        "required": false
+                    }
+                ]
+            }
+        },
+        "api\/v1\/media\/delete\/?mediaId={mediaId}": {
+            "delete": {
+                "summary": "Delete media.",
+                "description": "",
+                "tags": "C",
+                "deprecated": false,
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "type": "string",
+                        "description": "",
+                        "required": true
+                    },
+                    {
+                        "in": "path",
+                        "name": "mediaId",
+                        "type": "string",
+                        "required": true,
+                        "description": ""
+                    }
+                ]
+            }
+        },
+        "api\/v1\/media\/captions\/original\/create": {
+            "post": {
+                "summary": "Generate original captions",
+                "description": "",
+                "tags": "D",
+                "deprecated": false,
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "type": "string",
+                        "description": "",
+                        "required": true
+                    },
+                    {
+                        "in": "formData",
+                        "name": "mediaId",
+                        "type": "string",
+                        "required": true,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "auto",
+                        "enum": [
+                            0,
+                            1
+                        ],
+                        "required": true,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "languageId",
+                        "type": "int",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "textFile",
+                        "type": "file",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "textBreakBy",
+                        "enum": [
+                            "sentence",
+                            "paragraph"
+                        ],
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "minDuration",
+                        "type": "integer",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "maxDuration",
+                        "type": "integer",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "frameGap",
+                        "type": "integer",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "maxLinePerSubtitle",
+                        "type": "integer",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "maxCharsPerLine",
+                        "type": "integer",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "maxCharsPerSecond",
+                        "type": "integer",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "subtitleSyncAccuracy",
+                        "type": "integer",
+                        "required": false,
+                        "description": ""
+                    }
+                ]
+            }
+        },
+        "api\/v1\/media\/captions\/original\/list\/?mediaId={mediaId}&history={history}": {
+            "get": {
+                "summary": "Get list of original captions",
+                "description": "",
+                "tags": "D",
+                "deprecated": false,
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "type": "string",
+                        "description": "",
+                        "required": true
+                    },
+                    {
+                        "in": "path",
+                        "name": "mediaId",
+                        "type": "string",
+                        "required": true,
+                        "description": ""
+                    },
+                    {
+                        "in": "path",
+                        "name": "history",
+                        "enum": [
+                            0,
+                            1
+                        ],
+                        "required": true,
+                        "description": ""
+                    }
+                ]
+            }
+        },
+        "api\/v1\/media\/captions\/original\/?mediaId={mediaId}&history={history}": {
+            "get": {
+                "summary": "Get original captions",
+                "description": "",
+                "tags": "D",
+                "deprecated": false,
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "type": "string",
+                        "description": "",
+                        "required": true
+                    },
+                    {
+                        "in": "path",
+                        "name": "mediaId",
+                        "type": "string",
+                        "required": true,
+                        "description": ""
+                    }
+                ]
+            }
+        },
+        "api\/v1\/media\/captions\/original\/update\/?mediaId={mediaId}": {
+            "put": {
+                "summary": "Update original captions",
+                "description": "",
+                "tags": "D",
+                "deprecated": false,
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "type": "string",
+                        "description": "",
+                        "required": true
+                    },
+                    {
+                        "in": "path",
+                        "name": "mediaId",
+                        "type": "string",
+                        "required": true,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "minDuration",
+                        "type": "integer",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "maxDuration",
+                        "type": "integer",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "frameGap",
+                        "type": "integer",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "maxLinePerSubtitle",
+                        "type": "integer",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "maxCharsPerLine",
+                        "type": "integer",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "maxCharsPerSecond",
+                        "type": "integer",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "subtitleSyncAccuracy",
+                        "type": "integer",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "linguistId",
+                        "type": "string",
+                        "required": false,
+                        "description": ""
+                    }
+                ]
+            }
+        },
+        "api\/v1\/media\/captions\/original\/complete?mediaId={mediaId}": {
+            "put": {
+                "summary": "Mark original caption complete",
+                "description": "",
+                "tags": "D",
+                "deprecated": false,
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "type": "string",
+                        "description": "",
+                        "required": true
+                    },
+                    {
+                        "in": "path",
+                        "name": "mediaId",
+                        "type": "string",
+                        "required": true,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "transitionStatus",
+                        "enum": [
+                            "completed"
+                        ],
+                        "required": true,
+                        "description": ""
+                    }
+                ]
+            }
+        },
+        "api\/v1\/media\/captions\/original\/delete\/?mediaId={mediaId}": {
+            "delete": {
+                "summary": "Delete original captions",
+                "description": "",
+                "tags": "D",
+                "deprecated": false,
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "type": "string",
+                        "description": "",
+                        "required": true
+                    },
+                    {
+                        "in": "path",
+                        "name": "mediaId",
+                        "type": "string",
+                        "required": true,
+                        "description": ""
+                    }
+                ]
+            }
+        },
+        "api\/v1\/media\/captions\/translation\/create": {
+            "post": {
+                "summary": "Translate captions",
+                "description": "",
+                "tags": "E",
+                "deprecated": false,
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "type": "string",
+                        "description": "",
+                        "required": true
+                    },
+                    {
+                        "in": "formData",
+                        "name": "mediaId",
+                        "type": "string",
+                        "required": true,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "languageId[]",
+                        "type": "array",
+                        "required": true,
+                        "description": "",
+                        "items": []
+                    },
+                    {
+                        "in": "formData",
+                        "name": "auto",
+                        "enum": [
+                            0,
+                            1
+                        ],
+                        "required": true,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "textFile",
+                        "type": "file",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "textBreakBy",
+                        "enum": [
+                            "sentence",
+                            "paragraph"
+                        ],
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "minDuration",
+                        "type": "integer",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "maxDuration",
+                        "type": "integer",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "frameGap",
+                        "type": "integer",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "maxLinePerSubtitle",
+                        "type": "integer",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "maxCharsPerLine",
+                        "type": "integer",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "maxCharsPerSecond",
+                        "type": "integer",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "minDuration",
+                        "type": "integer",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "maxDuration",
+                        "type": "integer",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "frameGap",
+                        "type": "integer",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "maxLinePerSubtitle",
+                        "type": "integer",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "maxCharsPerLine",
+                        "type": "integer",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "maxCharsPerSecond",
+                        "type": "integer",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "subtitleSyncAccuracy",
+                        "type": "integer",
+                        "required": false,
+                        "description": ""
+                    }
+                ]
+            }
+        },
+        "api\/v1\/media\/captions\/translation\/list\/?mediaId={mediaId}&history={history}&languageId={languageId}": {
+            "get": {
+                "summary": "Get translation list",
+                "description": "",
+                "tags": "E",
+                "deprecated": false,
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "type": "string",
+                        "description": "",
+                        "required": true
+                    },
+                    {
+                        "in": "path",
+                        "name": "mediaId",
+                        "type": "string",
+                        "required": true,
+                        "description": ""
+                    },
+                    {
+                        "in": "path",
+                        "name": "history",
+                        "enum": [
+                            0,
+                            1
+                        ],
+                        "required": true,
+                        "description": ""
+                    },
+                    {
+                        "in": "path",
+                        "name": "languageId",
+                        "type": "integer",
+                        "required": false,
+                        "description": ""
+                    }
+                ]
+            }
+        },
+        "api\/v1\/media\/captions\/translation\/?mediaId={mediaId}&languageId={languageId}": {
+            "get": {
+                "summary": "Get translated captions",
+                "description": "",
+                "tags": "E",
+                "deprecated": false,
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "type": "string",
+                        "description": "",
+                        "required": true
+                    },
+                    {
+                        "in": "path",
+                        "name": "mediaId",
+                        "type": "string",
+                        "required": true,
+                        "description": ""
+                    },
+                    {
+                        "in": "path",
+                        "name": "languageId",
+                        "type": "integer",
+                        "required": true,
+                        "description": ""
+                    }
+                ]
+            }
+        },
+        "api\/v1\/media\/captions\/translation\/update\/?mediaId={mediaId}&languageId={languageId}": {
+            "put": {
+                "summary": "Update translation list",
+                "description": "",
+                "tags": "E",
+                "deprecated": false,
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "type": "string",
+                        "description": "",
+                        "required": true
+                    },
+                    {
+                        "in": "path",
+                        "name": "mediaId",
+                        "type": "string",
+                        "required": true,
+                        "description": ""
+                    },
+                    {
+                        "in": "path",
+                        "name": "languageId",
+                        "type": "integer",
+                        "required": true,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "minDuration",
+                        "type": "integer",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "maxDuration",
+                        "type": "integer",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "frameGap",
+                        "type": "integer",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "maxLinePerSubtitle",
+                        "type": "integer",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "maxCharsPerLine",
+                        "type": "integer",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "maxCharsPerSecond",
+                        "type": "integer",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "subtitleSyncAccuracy",
+                        "type": "integer",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "linguistId",
+                        "type": "string",
+                        "required": false,
+                        "description": ""
+                    }
+                ]
+            }
+        },
+        "api\/v1\/media\/captions\/translation\/complete\/?mediaId={mediaId}&languageId={languageId}": {
+            "put": {
+                "summary": "Mark translation complete",
+                "description": "",
+                "tags": "E",
+                "deprecated": false,
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "type": "string",
+                        "description": "",
+                        "required": true
+                    },
+                    {
+                        "in": "path",
+                        "name": "mediaId",
+                        "type": "string",
+                        "required": true,
+                        "description": ""
+                    },
+                    {
+                        "in": "path",
+                        "name": "languageId",
+                        "type": "integer",
+                        "required": true,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "transitionStatus",
+                        "enum": [
+                            "completed"
+                        ],
+                        "required": false,
+                        "description": ""
+                    }
+                ]
+            }
+        },
+        "api\/v1\/media\/captions\/translation\/delete\/?mediaId={mediaId}&languageId={languageId}": {
+            "delete": {
+                "summary": "Delete translation list",
+                "description": "",
+                "tags": "E",
+                "deprecated": false,
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "type": "string",
+                        "description": "",
+                        "required": true
+                    },
+                    {
+                        "in": "path",
+                        "name": "mediaId",
+                        "type": "string",
+                        "required": true,
+                        "description": ""
+                    },
+                    {
+                        "in": "path",
+                        "name": "languageId",
+                        "type": "integer",
+                        "required": true,
+                        "description": ""
+                    }
+                ]
+            }
+        },
+        "api\/v1\/caption\/create": {
+            "post": {
+                "summary": "Add caption manually",
+                "description": "",
+                "tags": "F",
+                "deprecated": false,
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "type": "string",
+                        "description": "",
+                        "required": true
+                    },
+                    {
+                        "in": "formData",
+                        "name": "mediaId",
+                        "type": "string",
+                        "required": true,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "languageId",
+                        "type": "integer",
+                        "required": true,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "start",
+                        "type": "integer",
+                        "required": true,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "end",
+                        "type": "integer",
+                        "required": true,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "text",
+                        "type": "string",
+                        "required": true,
+                        "description": ""
+                    }
+                ]
+            }
+        },
+        "api\/v1\/caption\/update": {
+            "put": {
+                "summary": "Update caption manually",
+                "description": "",
+                "tags": "F",
+                "deprecated": false,
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "type": "string",
+                        "description": "",
+                        "required": true
+                    },
+                    {
+                        "in": "formData",
+                        "name": "captions",
+                        "type": "array",
+                        "required": true,
+                        "items": [
+                            [
+                                {
+                                    "in": "formData",
+                                    "name": "mediaCaptionId",
+                                    "type": "string",
+                                    "required": true,
+                                    "description": ""
+                                },
+                                {
+                                    "in": "formData",
+                                    "name": "start",
+                                    "type": "integer",
+                                    "required": true,
+                                    "description": ""
+                                },
+                                {
+                                    "in": "formData",
+                                    "name": "end",
+                                    "type": "integer",
+                                    "required": true,
+                                    "description": ""
+                                },
+                                {
+                                    "in": "formData",
+                                    "name": "text",
+                                    "type": "string",
+                                    "required": true,
+                                    "description": ""
+                                }
+                            ]
+                        ]
+                    }
+                ]
+            }
+        },
+        "api\/v1\/caption\/delete": {
+            "delete": {
+                "summary": "Delete caption manually",
+                "description": "",
+                "tags": "F",
+                "deprecated": false,
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "type": "string",
+                        "description": "",
+                        "required": true
+                    },
+                    {
+                        "in": "formData",
+                        "name": "mediaCaptionId",
+                        "type": "string",
+                        "required": true,
+                        "description": ""
+                    }
+                ]
+            }
+        },
+        "api\/v1\/caption\/export?mediaId={mediaId}&languageId={languageId}&type={type}": {
+            "get": {
+                "summary": "Export caption",
+                "description": "",
+                "tags": "F",
+                "deprecated": false,
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "type": "string",
+                        "description": "",
+                        "required": true
+                    },
+                    {
+                        "in": "path",
+                        "name": "mediaId",
+                        "type": "string",
+                        "required": true,
+                        "description": ""
+                    },
+                    {
+                        "in": "path",
+                        "name": "languageId",
+                        "type": "integer",
+                        "required": true,
+                        "description": ""
+                    },
+                    {
+                        "in": "path",
+                        "name": "type",
+                        "type": "string",
+                        "required": true,
+                        "description": ""
+                    }
+                ]
+            }
+        },
+        "api\/v1\/content\/?name={name}&page={page}&size={size}": {
+            "get": {
+                "summary": "Content list",
+                "description": "",
+                "tags": "G",
+                "deprecated": false,
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "type": "string",
+                        "description": "",
+                        "required": true
+                    },
+                    {
+                        "in": "path",
+                        "name": "name",
+                        "type": "string",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "path",
+                        "name": "page",
+                        "type": "integer",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "path",
+                        "name": "size",
+                        "type": "integer",
+                        "required": false,
+                        "description": ""
+                    }
+                ]
+            }
+        },
+        "api\/v1\/roles\/create": {
+            "post": {
+                "summary": "Add role and permissions",
+                "description": "",
+                "tags": "G",
+                "deprecated": false,
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "type": "string",
+                        "description": "",
+                        "required": true
+                    },
+                    {
+                        "in": "formData",
+                        "name": "name",
+                        "type": "string",
+                        "required": true,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "description",
+                        "type": "string",
+                        "required": true,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "permissions",
+                        "type": "array",
+                        "required": true,
+                        "items": [
+                            {
+                                "in": "formData",
+                                "name": "contentId",
+                                "type": "integer"
+                            },
+                            {
+                                "name": "actions",
+                                "type": "array",
+                                "items": [
+                                    {
+                                        "in": "formData",
+                                        "name": "view",
+                                        "enum": [
+                                            0,
+                                            1
+                                        ]
+                                    },
+                                    {
+                                        "in": "formData",
+                                        "name": "add",
+                                        "enum": [
+                                            0,
+                                            1
+                                        ]
+                                    },
+                                    {
+                                        "in": "formData",
+                                        "name": "edit",
+                                        "enum": [
+                                            0,
+                                            1
+                                        ]
+                                    },
+                                    {
+                                        "in": "formData",
+                                        "name": "delete",
+                                        "enum": [
+                                            0,
+                                            1
+                                        ]
+                                    },
+                                    {
+                                        "in": "formData",
+                                        "name": "download",
+                                        "enum": [
+                                            0,
+                                            1
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        "api\/v1\/roles\/": {
+            "get": {
+                "summary": "Role list",
+                "description": "",
+                "tags": "G",
+                "deprecated": false,
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "type": "string",
+                        "description": "",
+                        "required": true
+                    }
+                ]
+            }
+        },
+        "api\/v1\/roles\/details?roleId={roleId}": {
+            "get": {
+                "summary": "Role detail",
+                "description": "",
+                "tags": "G",
+                "deprecated": false,
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "type": "string",
+                        "description": "",
+                        "required": true
+                    },
+                    {
+                        "in": "path",
+                        "name": "roleId",
+                        "type": "string",
+                        "description": "",
+                        "required": true
+                    }
+                ]
+            }
+        },
+        "api\/v1\/roles\/update\/?roleId={roleId}": {
+            "put": {
+                "summary": "Update role and permission",
+                "description": "",
+                "tags": "G",
+                "deprecated": false,
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "type": "string",
+                        "description": "",
+                        "required": true
+                    },
+                    {
+                        "in": "path",
+                        "name": "roleId",
+                        "type": "string",
+                        "description": "",
+                        "required": true
+                    },
+                    {
+                        "in": "formData",
+                        "name": "name",
+                        "type": "string",
+                        "description": "",
+                        "required": true
+                    },
+                    {
+                        "in": "formData",
+                        "name": "description",
+                        "type": "string",
+                        "description": "",
+                        "required": true
+                    }
+                ]
+            }
+        },
+        "api\/v1\/roles\/delete\/?roleId={roleId}": {
+            "delete": {
+                "summary": "Delete role and permission",
+                "description": "",
+                "tags": "G",
+                "deprecated": false,
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "type": "string",
+                        "description": "",
+                        "required": true
+                    },
+                    {
+                        "in": "path",
+                        "name": "roleId",
+                        "type": "string",
+                        "description": "",
+                        "required": true
+                    }
+                ]
+            }
+        },
+        "api\/v1\/user\/roles\/details\/": {
+            "get": {
+                "summary": "Get permissions for logged in user",
+                "description": "",
+                "tags": "G",
+                "deprecated": false,
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "type": "string",
+                        "description": "",
+                        "required": true
+                    }
+                ]
+            }
+        },
+        "api\/v1\/team\/create": {
+            "post": {
+                "summary": "Add new team",
+                "description": "",
+                "tags": "H",
+                "deprecated": false,
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "type": "string",
+                        "description": "",
+                        "required": true
+                    },
+                    {
+                        "in": "formData",
+                        "name": "name",
+                        "type": "string",
+                        "required": true,
+                        "description": ""
+                    }
+                ]
+            }
+        },
+        "api\/v1\/team": {
+            "get": {
+                "summary": "Team list",
+                "description": "",
+                "tags": "H",
+                "deprecated": false,
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "type": "string",
+                        "description": "",
+                        "required": true
+                    }
+                ]
+            }
+        },
+        "api\/v1\/team\/update\/?teamId={teamId}": {
+            "put": {
+                "summary": "Update team details",
+                "description": "",
+                "tags": "H",
+                "deprecated": false,
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "type": "string",
+                        "description": "",
+                        "required": true
+                    },
+                    {
+                        "in": "path",
+                        "name": "teamId",
+                        "type": "string",
+                        "required": true,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "name",
+                        "type": "string",
+                        "required": true,
+                        "description": ""
+                    }
+                ]
+            }
+        },
+        "api\/v1\/team\/delete\/?teamId={teamId}": {
+            "delete": {
+                "summary": "Delete team",
+                "description": "",
+                "tags": "H",
+                "deprecated": false,
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "type": "string",
+                        "description": "",
+                        "required": true
+                    },
+                    {
+                        "in": "path",
+                        "name": "teamId",
+                        "type": "string",
+                        "required": true,
+                        "description": ""
+                    }
+                ]
+            }
+        },
+        "api\/v1\/team\/member\/add": {
+            "post": {
+                "summary": "Add new team member",
+                "description": "",
+                "tags": "H",
+                "deprecated": false,
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "type": "string",
+                        "description": "",
+                        "required": true
+                    },
+                    {
+                        "in": "formData",
+                        "name": "teamId",
+                        "type": "string",
+                        "required": true,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "userId[]",
+                        "type": "array",
+                        "items": []
+                    }
+                ]
+            }
+        },
+        "api\/v1\/team\/member\/?teamId={teamId}": {
+            "get": {
+                "summary": "List of team members",
+                "description": "",
+                "tags": "H",
+                "deprecated": false,
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "type": "string",
+                        "description": "",
+                        "required": true
+                    },
+                    {
+                        "in": "path",
+                        "name": "teamId",
+                        "type": "string",
+                        "required": true,
+                        "description": ""
+                    }
+                ]
+            }
+        },
+        "api\/v1\/team\/member\/remove/?teamId={teamId}&userId={userId}": {
+            "delete": {
+                "summary": "Remove team member",
+                "description": "",
+                "tags": "H",
+                "deprecated": false,
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "type": "string",
+                        "description": "",
+                        "required": true
+                    },
+                    {
+                        "in": "path",
+                        "name": "teamId",
+                        "type": "string",
+                        "required": true,
+                        "description": ""
+                    },
+                    {
+                        "in": "path",
+                        "name": "userId",
+                        "type": "string",
+                        "required": true,
+                        "description": ""
+                    }
+                ]
+            }
+        },
+        "api\/v1\/guideline\/create": {
+            "post": {
+                "summary": "Add new guideline",
+                "description": "",
+                "tags": "I",
+                "deprecated": false,
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "type": "string",
+                        "description": "",
+                        "required": true
+                    },
+                    {
+                        "in": "formData",
+                        "name": "name",
+                        "type": "string",
+                        "required": true,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "minDuration",
+                        "type": "integer",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "maxDuration",
+                        "type": "integer",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "frameGap",
+                        "type": "integer",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "maxLinePerSubtitle",
+                        "type": "integer",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "maxCharsPerLine",
+                        "type": "integer",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "maxCharsPerSecond",
+                        "type": "integer",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "subtitleSyncAccuracy",
+                        "type": "integer",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "languageId",
+                        "type": "integer",
+                        "required": true,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "defaultStatus",
+                        "enum": [
+                            0,
+                            1
+                        ],
+                        "required": true,
+                        "description": ""
+                    }
+                ]
+            }
+        },
+        "api\/v1\/guideline\/?name={name}&languageId={languageId}&page={page}&size={size}": {
+            "get": {
+                "summary": "Guideline list",
+                "description": "",
+                "tags": "I",
+                "deprecated": false,
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "type": "string",
+                        "description": "",
+                        "required": true
+                    },
+                    {
+                        "in": "path",
+                        "name": "name",
+                        "type": "string",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "path",
+                        "name": "languageId",
+                        "type": "integer",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "path",
+                        "name": "page",
+                        "type": "integer",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "path",
+                        "name": "size",
+                        "type": "string",
+                        "required": false,
+                        "description": ""
+                    }
+                ]
+            }
+        },
+        "api\/v1\/guideline\/update\/?guidelineId={guidelineId}": {
+            "put": {
+                "summary": "Update guideline",
+                "description": "",
+                "tags": "I",
+                "deprecated": false,
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "type": "string",
+                        "description": "",
+                        "required": true
+                    },
+                    {
+                        "in": "path",
+                        "name": "guidelineId",
+                        "type": "string",
+                        "required": true,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "name",
+                        "type": "string",
+                        "required": true,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "minDuration",
+                        "type": "integer",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "maxDuration",
+                        "type": "integer",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "frameGap",
+                        "type": "integer",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "maxLinePerSubtitle",
+                        "type": "integer",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "maxCharsPerLine",
+                        "type": "integer",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "maxCharsPerSecond",
+                        "type": "integer",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "subtitleSyncAccuracy",
+                        "type": "integer",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "languageId",
+                        "type": "integer",
+                        "required": true,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "defaultStatus",
+                        "enum": [
+                            0,
+                            1
+                        ],
+                        "required": true,
+                        "description": ""
+                    }
+                ]
+            }
+        },
+        "api\/v1\/guideline\/delete\/?guidelineId={guidelineId}": {
+            "delete": {
+                "summary": "Delete guideline",
+                "description": "",
+                "tags": "I",
+                "deprecated": false,
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "type": "string",
+                        "description": "",
+                        "required": true
+                    },
+                    {
+                        "in": "path",
+                        "name": "guidelineId",
+                        "type": "string",
+                        "required": true,
+                        "description": ""
+                    }
+                ]
+            }
+        },
+        "api\/v1\/project\/user\/add": {
+            "post": {
+                "summary": "Allocate user to project",
+                "description": "",
+                "tags": "J",
+                "deprecated": false,
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "type": "string",
+                        "description": "",
+                        "required": true
+                    },
+                    {
+                        "in": "formData",
+                        "name": "projectId",
+                        "type": "string",
+                        "required": true,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "userId[]",
+                        "type": "array",
+                        "items": []
+                    }
+                ]
+            }
+        },
+        "api\/v1\/project\/user\/?projectId={projectId}": {
+            "post": {
+                "summary": "Allocated user list of project",
+                "description": "",
+                "tags": "J",
+                "deprecated": false,
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "type": "string",
+                        "description": "",
+                        "required": true
+                    },
+                    {
+                        "in": "path",
+                        "name": "projectId",
+                        "type": "string",
+                        "required": true,
+                        "description": ""
+                    }
+                ]
+            }
+        },
+        "api\/v1\/project\/user\/remove/?projectId={projectId}&userId={userId}": {
+            "delete": {
+                "summary": "De-allocate user from project",
+                "description": "",
+                "tags": "J",
+                "deprecated": false,
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "type": "string",
+                        "description": "",
+                        "required": true
+                    },
+                    {
+                        "in": "path",
+                        "name": "projectId",
+                        "type": "string",
+                        "required": true,
+                        "description": ""
+                    },
+                    {
+                        "in": "path",
+                        "name": "userId",
+                        "type": "string",
+                        "required": true,
+                        "description": ""
+                    }
+                ]
+            }
+        },
+        "api\/v1\/project\/team\/add": {
+            "post": {
+                "summary": "Allocate team to project",
+                "description": "",
+                "tags": "J",
+                "deprecated": false,
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "type": "string",
+                        "description": "",
+                        "required": true
+                    },
+                    {
+                        "in": "formData",
+                        "name": "projectId",
+                        "type": "string",
+                        "required": true,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "teamId[]",
+                        "type": "array",
+                        "items": []
+                    }
+                ]
+            }
+        },
+        "api\/v1\/project\/team\/?projectId={projectId}": {
+            "get": {
+                "summary": "Team list of project",
+                "description": "",
+                "tags": "J",
+                "deprecated": false,
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "type": "string",
+                        "description": "",
+                        "required": true
+                    },
+                    {
+                        "in": "path",
+                        "name": "projectId",
+                        "type": "string",
+                        "required": true,
+                        "description": ""
+                    }
+                ]
+            }
+        },
+        "api\/v1\/project\/team\/remove/?projectId={projectId}&teamId={teamId}": {
+            "delete": {
+                "summary": "De-allocate team from project",
+                "description": "",
+                "tags": "J",
+                "deprecated": false,
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "type": "string",
+                        "description": "",
+                        "required": true
+                    },
+                    {
+                        "in": "path",
+                        "name": "projectId",
+                        "type": "string",
+                        "required": true,
+                        "description": ""
+                    },
+                    {
+                        "in": "path",
+                        "name": "teamId",
+                        "type": "string",
+                        "required": true,
+                        "description": ""
+                    }
+                ]
+            }
+        },
+        "api\/v1\/media\/user\/add": {
+            "post": {
+                "summary": "Allocate user to media",
+                "description": "",
+                "tags": "k",
+                "deprecated": false,
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "type": "string",
+                        "description": "",
+                        "required": true
+                    },
+                    {
+                        "in": "formData",
+                        "name": "mediaId",
+                        "type": "string",
+                        "required": true,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "userId[]",
+                        "type": "array",
+                        "items": []
+                    }
+                ]
+            }
+        },
+        "api\/v1\/media\/user\/?mediaId={mediaId}": {
+            "get": {
+                "summary": "Allocated user list of media",
+                "description": "",
+                "tags": "k",
+                "deprecated": false,
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "type": "string",
+                        "description": "",
+                        "required": true
+                    },
+                    {
+                        "in": "path",
+                        "name": "mediaId",
+                        "type": "string",
+                        "required": true,
+                        "description": ""
+                    }
+                ]
+            }
+        },
+        "api\/v1\/media\/user\/remove/?mediaId={mediaId}&userId={userId}": {
+            "delete": {
+                "summary": "De-allocate user from media",
+                "description": "",
+                "tags": "k",
+                "deprecated": false,
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "type": "string",
+                        "description": "",
+                        "required": true
+                    },
+                    {
+                        "in": "path",
+                        "name": "mediaId",
+                        "type": "string",
+                        "required": true,
+                        "description": ""
+                    },
+                    {
+                        "in": "path",
+                        "name": "userId",
+                        "type": "string",
+                        "required": true,
+                        "description": ""
+                    }
+                ]
+            }
+        },
+        "api\/v1\/media\/team\/add": {
+            "post": {
+                "summary": "Allocate team to media",
+                "description": "",
+                "tags": "k",
+                "deprecated": false,
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "type": "string",
+                        "description": "",
+                        "required": true
+                    },
+                    {
+                        "in": "formData",
+                        "name": "mediaId",
+                        "type": "string",
+                        "required": true,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "teamId[]",
+                        "type": "array",
+                        "items": []
+                    }
+                ]
+            }
+        },
+        "api\/v1\/media\/team\/?mediaId={mediaId}": {
+            "post": {
+                "summary": "Allocated team list of media",
+                "description": "",
+                "tags": "k",
+                "deprecated": false,
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "type": "string",
+                        "description": "",
+                        "required": true
+                    },
+                    {
+                        "in": "path",
+                        "name": "mediaId",
+                        "type": "string",
+                        "required": true,
+                        "description": ""
+                    }
+                ]
+            }
+        },
+        "api\/v1\/media\/team\/remove/?mediaId={mediaId}&teamId={teamId}": {
+            "delete": {
+                "summary": "De-allocate team from media",
+                "description": "",
+                "tags": "k",
+                "deprecated": false,
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "type": "string",
+                        "description": "",
+                        "required": true
+                    },
+                    {
+                        "in": "path",
+                        "name": "mediaId",
+                        "type": "string",
+                        "required": true,
+                        "description": ""
+                    },
+                    {
+                        "in": "path",
+                        "name": "teamId",
+                        "type": "string",
+                        "required": true,
+                        "description": ""
+                    }
+                ]
+            }
+        },
+        "api\/v1\/language\/?searchValue={searchValue}&language={language}&languageCode={languageCode}&languageFor={languageFor}&autoTranslate={autoTranslate}&autoTranscribe={autoTranscribe}": {
+            "get": {
+                "summary": "Language list",
+                "description": "",
+                "tags": "L",
+                "deprecated": false,
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "type": "string",
+                        "description": "",
+                        "required": true
+                    },
+                    {
+                        "in": "path",
+                        "name": "searchValue",
+                        "type": "string",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "path",
+                        "name": "language",
+                        "type": "string",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "path",
+                        "name": "languageCode",
+                        "type": "string",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "path",
+                        "name": "languageFor",
+                        "enum": [
+                            1,
+                            2
+                        ],
+                        "description": "1 for transcript, 2 for translate"
+                    },
+                    {
+                        "in": "path",
+                        "name": "autoTranslate",
+                        "enum": [
+                            0,
+                            1
+                        ]
+                    },
+                    {
+                        "in": "path",
+                        "name": "autoTranscribe",
+                        "enum": [
+                            0,
+                            1
+                        ]
+                    }
+                ]
+            }
+        },
+        "api\/v1\/media\/transcript\/assignment": {
+            "post": {
+                "summary": "Assign transcript to linguist",
+                "description": "",
+                "tags": "M",
+                "deprecated": false,
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "type": "string",
+                        "description": "",
+                        "required": true
+                    },
+                    {
+                        "in": "formData",
+                        "name": "mediaId",
+                        "type": "string",
+                        "required": true,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "languageId",
+                        "type": "integer",
+                        "required": true,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "workflowTransitionId",
+                        "type": "integer",
+                        "required": true,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "workflowStateId",
+                        "type": "integer",
+                        "required": true,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "linguistId",
+                        "type": "string",
+                        "required": true,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "cost",
+                        "type": "integer",
+                        "required": true,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "unit",
+                        "enum": [
+                            "Per Min",
+                            "Per Char",
+                            "Flat"
+                        ],
+                        "required": true,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "currency",
+                        "enum": [
+                            "INR",
+                            "USD",
+                            "AUD"
+                        ],
+                        "required": true,
+                        "description": ""
+                    }
+                ]
+            }
+        },
+        "api\/v1\/media\/transcript\/assignment\/workflow-transition?workflowId={workflowId}&workflowStateId={workflowStateId}&currentStateStatus={currentStateStatus}": {
+            "get": {
+                "summary": "Get workflow transition for perticular transcription",
+                "description": "",
+                "tags": "M",
+                "deprecated": false,
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "type": "string",
+                        "description": "",
+                        "required": true
+                    },
+                    {
+                        "in": "path",
+                        "name": "workflowId",
+                        "type": "string",
+                        "required": true,
+                        "description": ""
+                    },
+                    {
+                        "in": "path",
+                        "name": "workflowStateId",
+                        "type": "string",
+                        "required": true,
+                        "description": ""
+                    },
+                    {
+                        "in": "path",
+                        "name": "currentStateStatus",
+                        "enum": [
+                            "unassigned",
+                            "assigned",
+                            "inprocess",
+                            "completed"
+                        ],
+                        "required": true,
+                        "description": ""
+                    }
+                ]
+            }
+        },
+        "api\/v1\/workflow\/?workflowType={workflowType}": {
+            "get": {
+                "summary": "Get workflow list",
+                "description": "",
+                "tags": "N",
+                "deprecated": false,
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "type": "string",
+                        "description": "",
+                        "required": true
+                    },
+                    {
+                        "in": "path",
+                        "name": "workflowType",
+                        "type": "string",
+                        "description": ""
+                    }
+                ]
+            }
+        },
+        "api\/v1\/codemaster\/?codeType={codeType}": {
+            "get": {
+                "summary": "Get code master list",
+                "description": "",
+                "tags": "Q",
+                "deprecated": false,
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "type": "string",
+                        "description": "",
+                        "required": true
+                    },
+                    {
+                        "in": "path",
+                        "name": "codeType",
+                        "type": "string",
+                        "required": true,
+                        "description": ""
+                    }
+                ]
+            }
+        },
+        "api\/v1\/tag\/?tagName={tag}": {
+            "get": {
+                "summary": "Get tags list",
+                "description": "",
+                "tags": "P",
+                "deprecated": false,
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "type": "string",
+                        "description": "",
+                        "required": true
+                    },
+                    {
+                        "in": "path",
+                        "name": "tag",
+                        "type": "string",
+                        "description": ""
+                    }
+                ]
+            }
+        },
+        "api\/v1\/client\/?page={page}&size={size}&clientName={clientName}": {
+            "get": {
+                "summary": "Client list",
+                "description": "",
+                "tags": "O",
+                "deprecated": false,
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "type": "string",
+                        "description": "",
+                        "required": true
+                    },
+                    {
+                        "in": "path",
+                        "name": "page",
+                        "type": "integer",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "path",
+                        "name": "size",
+                        "type": "string",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "path",
+                        "name": "clientName",
+                        "type": "string",
+                        "required": false,
+                        "description": ""
+                    }
+                ]
+            }
+        },
+        "api\/v1\/client\/details\/?clientId={clientId}": {
+            "get": {
+                "summary": "Client details",
+                "description": "",
+                "tags": "O",
+                "deprecated": false,
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "type": "string",
+                        "description": "",
+                        "required": true
+                    },
+                    {
+                        "in": "path",
+                        "name": "clientId",
+                        "type": "string",
+                        "required": true,
+                        "description": ""
+                    }
+                ]
+            }
+        },
+        "api\/v1\/client\/create": {
+            "post": {
+                "summary": "Add new client",
+                "description": "",
+                "tags": "O",
+                "deprecated": false,
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "type": "string",
+                        "description": "",
+                        "required": true
+                    },
+                    {
+                        "in": "formData",
+                        "name": "clientName",
+                        "type": "string",
+                        "required": true,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "address",
+                        "type": "string",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "city",
+                        "type": "string",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "postalCode",
+                        "type": "string",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "country",
+                        "type": "string",
+                        "required": true,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "salesRep",
+                        "type": "string",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "projectManager",
+                        "type": "string",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "projectLead",
+                        "type": "string",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "salesPocs[]",
+                        "type": "array",
+                        "required": false,
+                        "items": []
+                    },
+                    {
+                        "in": "formData",
+                        "name": "operationalPocs[]",
+                        "type": "array",
+                        "required": false,
+                        "items": []
+                    }
+                ]
+            }
+        },
+        "api\/v1\/client\/update\/?id={id}": {
+            "put": {
+                "summary": "Update client detail.",
+                "description": "",
+                "tags": "O",
+                "deprecated": false,
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "type": "string",
+                        "description": "",
+                        "required": true
+                    },
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "type": "string",
+                        "required": true,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "clientName",
+                        "type": "string",
+                        "required": true,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "address",
+                        "type": "string",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "city",
+                        "type": "string",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "postalCode",
+                        "type": "string",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "country",
+                        "type": "string",
+                        "required": true,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "salesRep",
+                        "type": "string",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "projectManager",
+                        "type": "string",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "projectLead",
+                        "type": "string",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "formData",
+                        "name": "salesPoc[]",
+                        "type": "array",
+                        "required": false,
+                        "items": []
+                    },
+                    {
+                        "in": "formData",
+                        "name": "operationalPoc[]",
+                        "type": "array",
+                        "required": false,
+                        "items": []
+                    }
+                ]
+            }
+        },
+        "api\/v1\/client\/delete\/?clientId={clientId}": {
+            "delete": {
+                "summary": "Delete client",
+                "description": "",
+                "tags": "O",
+                "deprecated": false,
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "type": "string",
+                        "description": "",
+                        "required": true
+                    },
+                    {
+                        "in": "path",
+                        "name": "clientId",
+                        "type": "string",
+                        "required": true,
+                        "description": ""
+                    }
+                ]
+            }
+        }
+    }
+}

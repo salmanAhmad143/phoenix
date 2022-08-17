@@ -1,0 +1,12 @@
+apps:
+  - name: phoenix-transcription-queue-worker
+    script: artisan
+    interpreter: php
+    args:
+      - queue:work
+      - --timeout=0
+      - --tries=3
+      - --delay=60
+    error_file: ./storage/logs/queue.error.log
+    out_file: ./storage/logs/queue.out.log
+    pid_file: ./storage/app/queue.pid
